@@ -2,11 +2,11 @@ import { Layout } from "antd";
 import { AppHeader } from "./components/Layout/AppHeader";
 import { AppSider } from "./components/Layout/AppSider";
 import { AppContent } from "./components/Layout/AppContent";
-import styles from "./index.scss";
+import "./index.scss";
 
 export const App = () => {
   return (
-    <Layout className={styles.layoutStyle}>
+    <Layout className="layoutStyle">
       <AppHeader />
       <Layout>
         <AppSider />
