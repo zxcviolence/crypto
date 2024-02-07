@@ -2,18 +2,16 @@ import { Layout } from "antd";
 import { AppHeader } from "./components/Layout/AppHeader";
 import { AppSider } from "./components/Layout/AppSider";
 import { AppContent } from "./components/Layout/AppContent";
-import { AppLayout } from "./components/Layout/AppLayout";
+import styles from "./index.scss";
 
 export const App = () => {
   return (
-    <>
-      <AppLayout>
-        <AppHeader />
-        <Layout>
-          <AppSider />
-          <AppContent />
-        </Layout>
-      </AppLayout>
-    </>
+    <Layout className={styles.layoutStyle}>
+      <AppHeader />
+      <Layout>
+        <AppSider />
+        <AppContent />
+      </Layout>
+    </Layout>
   );
 };
