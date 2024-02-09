@@ -1,12 +1,11 @@
-import React from "react";
-import { CryptoContext } from "../../../context/cryptoContext.jsx";
+import { useCrypto } from "../../../hooks/useCrypto.js";
 import { Card, Layout, List, Statistic, Typography, Tag } from "antd";
 import { capitalize } from "../../../utils.js";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import styles from "./sider.module.scss";
 
 export const AppSider = () => {
-  const { assets } = React.useContext(CryptoContext);
+  const { assets } = useCrypto();
 
   return (
     <Layout.Sider width="25%" className={styles.siderStyle}>
