@@ -1,6 +1,8 @@
 import { Layout, Typography } from "antd";
 import { useCrypto } from "../../../hooks/useCrypto";
 import styles from "./content.module.scss";
+import { PortfolioChart } from "../../PortfolioChart";
+import { AssetsTable } from "../../AssetsTable";
 
 export const AppContent = () => {
   const { assets, crypto } = useCrypto();
@@ -20,6 +22,8 @@ export const AppContent = () => {
           .toFixed(2)}
         $
       </Typography.Title>
+      <PortfolioChart />
+      <AssetsTable />
     </Layout.Content>
   );
 };
