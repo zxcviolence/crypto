@@ -1,8 +1,9 @@
 .headerStyle {
-    text-align: center;
-    color: #fff;
-    height: 60px;
-    padding-inline: 48;
-    line-height: 64px;
-    background-color: #4096ff;
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

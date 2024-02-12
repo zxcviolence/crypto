@@ -1,17 +1,10 @@
-import { Layout } from "antd";
-import { AppHeader } from "./components/Layout/AppHeader";
-import { AppSider } from "./components/Layout/AppSider";
-import { AppContent } from "./components/Layout/AppContent";
-import styles from "./index.scss";
+import { CryptoContextProvider } from "./context/cryptoContext";
+import { AppLayout } from "./components/Layout/AppLayout";
 
 export const App = () => {
   return (
-    <Layout className={styles.layoutStyle}>
-      <AppHeader />
-      <Layout>
-        <AppSider />
-        <AppContent />
-      </Layout>
-    </Layout>
+    <CryptoContextProvider>
+      <AppLayout />
+    </CryptoContextProvider>
   );
 };
