@@ -66,11 +66,12 @@ export const AppHeader = () => {
 
       <Drawer
         width={600}
+        destroyOnClose
         title="Add Asset"
         onClose={() => setDrawer(false)}
         open={drawer}
       >
-        <AddAssetForm />
+        <AddAssetForm onClose={() => setDrawer(false)} />
       </Drawer>
     </Layout.Header>
   );
