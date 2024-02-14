@@ -1,6 +1,6 @@
 import { useCrypto } from "../../../hooks/useCrypto.js";
 import { Card, Layout, List, Statistic, Typography, Tag } from "antd";
-import { capitalize } from "../../../utils.js";
+import { capitalize } from "../../../utils/utils.js";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import styles from "./sider.module.scss";
 
@@ -30,7 +30,6 @@ export const AppSider = () => {
                 withTag: true,
               },
               { title: "Total Amount", value: asset.amount, isPlain: true },
-              // { title: "Difference", value: asset.growPercent },
             ]}
             renderItem={item => (
               <List.Item>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Layout, Modal, Select, Space, Drawer } from "antd";
 import { useCrypto } from "../../../hooks/useCrypto";
-import styles from "./header.module.scss";
 import { CoinInfoModal } from "../../CoinInfoModal";
 import { AddAssetForm } from "../../AddAssetForm";
+import styles from "./header.module.scss";
 
 export const AppHeader = () => {
   const [select, setSelect] = React.useState(false);

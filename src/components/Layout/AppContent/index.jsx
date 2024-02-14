@@ -1,8 +1,8 @@
 import { Layout, Typography } from "antd";
 import { useCrypto } from "../../../hooks/useCrypto";
-import styles from "./content.module.scss";
 import { PortfolioChart } from "../../PortfolioChart";
 import { AssetsTable } from "../../AssetsTable";
+import styles from "./content.module.scss";
 
 export const AppContent = () => {
   const { assets, crypto } = useCrypto();

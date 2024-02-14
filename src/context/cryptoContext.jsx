@@ -1,6 +1,6 @@
 import React from "react";
 import { FetchAssets, fakeFetchCrypto } from "../api";
-import { percentDifference } from "../utils";
+import { percentDifference } from "../utils/utils";
 
 export const CryptoContext = React.createContext({
   assets: [],

@@ -1,6 +1,6 @@
 import React from "react";
-import { useCrypto } from "../hooks/useCrypto";
-import { CoinInfo } from "./CoinInfo";
+import { useCrypto } from "../../hooks/useCrypto";
+import { CoinInfo } from "../CoinInfo";
 import {
   Button,
   DatePicker,
@@ -11,6 +11,7 @@ import {
   Select,
   Space,
 } from "antd";
+import styles from "./addAssetForm.module.scss";
 
 const validateMessages = {
   required: "${label} is required",
@@ -22,53 +23,13 @@ const validateMessages = {
   },
 };
 
-export const AddAssetForm = ({ onClose }) => {
+export const AddAssetForm = () => {
   const [submitted, setSubmitted] = React.useState(false);
   const [coin, setCoin] = React.useState();
+
   const { crypto, addAsset } = useCrypto();
   const [form] = Form.useForm();
   const assetRef = React.useRef();
-
-  if (submitted) {
-    return (
-      <Result
-        status="success"
-        title="New Asset Added"
-        subTitle={`Added ${assetRef.current.amount} of ${coin.name} by price ${assetRef.current.price}`}
-        extra={[
-          <Button type="primary" key="console" onClick={onClose}>
-            Close
-          </Button>,
-          <Button key="buy">Buy Again</Button>,
-        ]}
-      />
-    );
-  }
-
-  if (!coin) {
-    return (
-      <Select
-        style={{ width: "100%" }}
-        onSelect={v => setCoin(crypto.find(c => c.id === v))}
-        placeholder="Select dcoin"
-        options={crypto.map(coin => ({
-          label: coin.name,
-          value: coin.id,
-          icon: coin.icon,
-        }))}
-        optionRender={option => (
-          <Space>
-            <img
-              style={{ width: 20 }}
-              src={option.data.icon}
-              alt={option.data.label}
-            />
-            {option.data.label}
-          </Space>
-        )}
-      />
-    );
-  }
 
   const onFinish = values => {
     const newAsset = {
@@ -97,6 +58,41 @@ export const AddAssetForm = ({ onClose }) => {
     });
   };
 
+  if (submitted) {
+    return (
+      <Result
+        status="success"
+        title="New Asset Added"
+        subTitle={`Added ${assetRef.current.amount} of ${coin.name} by price ${assetRef.current.price}`}
+      />
+    );
+  }
+
+  if (!coin) {
+    return (
+      <Select
+        className={styles.select}
+        onSelect={v => setCoin(crypto.find(c => c.id === v))}
+        placeholder="Select coin"
+        options={crypto.map(coin => ({
+          label: coin.name,
+          value: coin.id,
+          icon: coin.icon,
+        }))}
+        optionRender={option => (
+          <Space>
+            <img
+              className={styles.icon}
+              src={option.data.icon}
+              alt={option.data.label}
+            />
+            {option.data.label}
+          </Space>
+        )}
+      />
+    );
+  }
+
   return (
     <Form
       form={form}
@@ -106,9 +102,6 @@ export const AddAssetForm = ({ onClose }) => {
       }}
       wrapperCol={{
         span: 10,
-      }}
-      style={{
-        maxWidth: 600,
       }}
       initialValues={{
         price: +coin.price.toFixed(2),
@@ -131,17 +124,17 @@ export const AddAssetForm = ({ onClose }) => {
         ]}
       >
         <InputNumber
+          className={styles.input}
           placeholder="Enter coin amount"
           onChange={handleAmountChange}
-          style={{ width: "100%" }}
         />
       </Form.Item>
 
       <Form.Item label="Price" name="price">
         <InputNumber
+          className={styles.input}
           suffix="$"
           onChange={handlePriceChange}
-          style={{ width: "100%" }}
         />
       </Form.Item>
 
@@ -150,7 +143,7 @@ export const AddAssetForm = ({ onClose }) => {
       </Form.Item>
 
       <Form.Item label="Total" name="total">
-        <InputNumber suffix="$" disabled style={{ width: "100%" }} />
+        <InputNumber className={styles.input} suffix="$" disabled />
       </Form.Item>
 
       <Form.Item>

@@ -1,5 +1,6 @@
 import { Table } from "antd";
 import { useCrypto } from "../hooks/useCrypto";
+
 const columns = [
   {
     title: "Name",
