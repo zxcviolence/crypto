@@ -10,6 +10,7 @@ import {
   Result,
   Select,
   Space,
+  Typography,
 } from "antd";
 import styles from "./addAssetForm.module.scss";
 
@@ -60,11 +61,16 @@ export const AddAssetForm = () => {
 
   if (submitted) {
     return (
-      <Result
-        status="success"
-        title="New Asset Added"
-        subTitle={`Added ${assetRef.current.amount} of ${coin.name} by price ${assetRef.current.price}`}
-      />
+      <>
+        <Result
+          status="success"
+          title="New Asset Added"
+          subTitle={`Added ${assetRef.current.amount} of ${coin.name} by price ${assetRef.current.price}`}
+        />
+        <Typography.Text className={styles.exit}>
+          Click outside the modal window to close
+        </Typography.Text>
+      </>
     );
   }
 
