@@ -15,7 +15,7 @@ export const fakeFetchCrypto = async () => {
     const data = await res.data;
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
