@@ -1,7 +1,7 @@
 import axios from "axios";
 import { cryptoAssets } from "./data";
 
-export const fakeFetchCrypto = async () => {
+export const fetchCrypto = async () => {
   const options = {
     method: "GET",
     url: "https://openapiv1.coinstats.app/coins",
@@ -10,12 +10,13 @@ export const fakeFetchCrypto = async () => {
       "X-API-KEY": "tfRTLR4FBGUOq+xkmdmk5Zz/FxaEnOehx8/vLBiUsmI=",
     },
   };
+
   try {
     let res = await axios.request(options);
     const data = await res.data;
     return data;
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 };
 

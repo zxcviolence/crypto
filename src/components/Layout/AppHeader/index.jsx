@@ -32,9 +32,7 @@ export const AppHeader = () => {
   return (
     <Layout.Header className={styles.headerStyle}>
       <Select
-        style={{
-          width: 250,
-        }}
+        className={styles.select}
         open={select}
         onClick={() => setSelect(prev => !prev)}
         onSelect={handleSelect}
@@ -47,7 +45,7 @@ export const AppHeader = () => {
         optionRender={option => (
           <Space>
             <img
-              style={{ width: 20 }}
+              className={styles.icon}
               src={option.data.icon}
               alt={option.data.label}
             />
